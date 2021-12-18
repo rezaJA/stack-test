@@ -1,8 +1,9 @@
 class Stack<T> {
-    private haystack: T[] = [];
+    private readonly haystack: T[] = [];
     private readonly size: number = 0;
 
-    constructor(size: number = 10) {
+    constructor(initialStack: T[] = [], size: number = 10) {
+        this.haystack = initialStack;
         this.size = size;
     }
 
@@ -29,6 +30,10 @@ class Stack<T> {
 
     public readonly isEmpty: () => boolean = () => {
         return this.haystack.length === 0;
+    }
+
+    public readonly toArray: () => T[] = () => {
+        return this.haystack;
     }
 }
 
